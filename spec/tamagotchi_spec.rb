@@ -49,4 +49,43 @@ describe("Tamagotchi") do
       expect(my_pet.sleep(5)).to(eq(15))
     end
   end
+  describe("#exercise") do
+    it("takes in number and adds it to activity level") do
+      my_pet = Tamagotchi.new("lil dragon")
+      expect(my_pet.exercise(5)).to(eq(15))
+    end
+  end
+  describe("#is_insane?") do
+    it("is insane when sleep level reaches zero") do
+      my_pet = Tamagotchi.new("lil dragon")
+      my_pet.sleep_level= 0
+      expect(my_pet.is_insane?()).to(eq(false))
+    end
+  end
+  describe("#is_depressed?") do
+    it("is depressed when activity level reaches zero") do
+      my_pet = Tamagotchi.new("lil dragon")
+      my_pet.activity_level= 0
+      expect(my_pet.is_depressed?()).to(eq(false))
+    end
+  end
+  describe(".current") do
+    it("to be empty at first") do
+      expect(Tamagotchi.current).to(eq([]))
+    end
+  end
+  describe("#save") do
+    it("saves the current Tamagotchis attributes") do
+      my_pet = Tamagotchi.new("lil dragon")
+      my_pet.save()
+      expect(Tamagotchi.current()).to(eq([my_pet]))
+    end
+  end
+  describe(".clear") do
+    it("empties all of the saved tasks") do
+      my_pet = Tamagotchi.new("lil dragon").save()
+      my_pet.clear()
+      expect(Tamagotchi.current()).to(eq([]))
+    end
+  end
 end

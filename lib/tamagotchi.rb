@@ -1,4 +1,6 @@
 class Tamagotchi
+  @@current_tamagotchi = []
+
   define_method :initialize do |name|
     @name = name
     @food_level = 10
@@ -33,5 +35,29 @@ class Tamagotchi
   end
   define_method :sleep do |amount|
     @sleep_level += amount
+  end
+  define_method :exercise do |amount|
+    @activity_level += amount
+  end
+  define_method :sleep_level= do |level|
+    @sleep_level = level
+  end
+  define_method :is_insane? do
+    @sleep_level > 0
+  end
+  define_method :activity_level= do |level|
+    @activity_level = level
+  end
+  define_method :is_depressed? do
+    @activity_level > 0
+  end
+  define_singleton_method :current do
+    @@current_tamagotchi
+  end
+  define_method :save do
+    @@current_tamagotchi.push(self)
+  end
+  define_singleton_method :clear do
+    @@current_Tamagotchi = []
   end
 end
