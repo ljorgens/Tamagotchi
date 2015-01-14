@@ -1,0 +1,33 @@
+<h1>Your Tamagotchi!</h1>
+
+<p>name:</p><%= @name %>
+
+<p>activity level: </p><%= @activity_level%>
+
+<p>food level</p><%= @food_level %>
+
+<p>sleep level: </p><%= @sleep_level %>
+
+<form action='/action'>
+  <div class="form-group">
+    <label for="new_sleep">Enter an amount of sleep!</label>
+    <input id="new_sleep" name="new_sleep" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn">Sleep</button>
+</form>
+
+<form action='/action'>
+  <div class="form-group">
+    <label for="new_activity">Enter how long you want to excercise!</label>
+    <input id="new_activity" name="new_activity" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn">Excercise</button>
+</form>
+
+<form action='/action'>
+  <div class="form-group">
+    <label for="new_food">Enter an amount of Food!</label>
+    <input id="new_food" name="new_food" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn">Eat</button>
+</form>
